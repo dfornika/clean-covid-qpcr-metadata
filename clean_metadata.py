@@ -36,7 +36,7 @@ def remove_zero_cts(metadata_record):
         'ncov_qpcr_orf1_result',
     ]
     for field in ct_fields:
-        if re.match('0\.0+', metadata_record[field]) or re.match('0', metadata_record[field]):
+        if re.match('0\.0+$', metadata_record[field]) or re.match('0$', metadata_record[field]):
             metadata_record[field] = ""
 
     return metadata_record
@@ -52,7 +52,7 @@ def handle_nonstandard_ct(ct):
     # These contain valid ct values with some additional chars
     pos_regexes = [
         '^(\d+)$',                                     # "36"                   -> "36"
-        '\(Ct\.\s+(\d+\.\d+)\)',                       # "(Ct. 21.3)"           -> "21.13"
+        '\(Ct\.\s+(\d+\.\d+)\)',                       # "(Ct. 21.3)"           -> "21.3"
         '[:=-][\s+]?(\d+\.\d+)',                       # "CT=22.1"              -> "22.1", "E:20.5" -> "20.5", "SARS-CoV-2: 21.26" -> "21.26"
         '(\d+\.\d+)\s+\d+\.\d+',                       # "27.6   27.6"          -> "27.6"
         '[A-Z][:=]\d+\s+(\d+.\d+)',                    # "E=1038   10.38"       -> "10.38", "E:23083   23.83" -> "23.83"
