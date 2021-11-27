@@ -3,6 +3,8 @@ Perform data cleaning on a metadata csv for COVID qPCR data
 
 ## Usage:
 
+### Clean Metadata
+
 The `clean_metadata.py` script expects a csv-formatted input file with the following fields:
 ```
 containerid
@@ -41,6 +43,7 @@ optional arguments:
   -h, --help    show this help message and exit
 ```
 
+### Generate ncov-tools metadata for a sequencing run
 
 The `generate_ncov_tools_metadata_for_run.py` script takes the output from the `clean_metadata.py` script as input.
 It also requires a path to a directory where fastq files are stored in directories named by illumina run ID, and
