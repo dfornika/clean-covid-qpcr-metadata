@@ -142,7 +142,7 @@ def main(args):
 
     print_header(output_fields)
 
-    with open(args.metadata, 'r') as f:
+    with open(args.all_metadata, 'r') as f:
         reader = csv.DictReader(f, dialect='unix')
         for metadata_record in reader:
             cleaned_metadata_record = clean_metadata_record(metadata_record)
@@ -154,7 +154,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('metadata')
+    parser.add_argument('all_metadata')
     args = parser.parse_args()
     main(args)
 
