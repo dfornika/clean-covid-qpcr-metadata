@@ -2,19 +2,9 @@
 
 import argparse
 import csv
-import json
 import glob
 import os
 
-
-def select_container_id(metadata_record, library_ids):
-    container_id_fields = [
-        'containerid',
-        'second_containerid',
-        'seq_containerid',
-    ]
-    for field in container_id_fields:
-        pass
 
 def parse_all_metadata_cleaned(all_metadata_cleaned_path, container_id_fields):
     """
